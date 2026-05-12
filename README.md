@@ -12,6 +12,7 @@ tertentu dan subscriber dapat mendengarkan serta memproses pesan dari antrean te
 
 ## Monitoring Chart
 ![Monitoring chart based on publisher](image1.png)
+Foto di atas menunjukkan dashboard dari RabbitMQ ketika kita login dengan user guest untuk modul tutorial ini
 
 ## Running Cargo on Both Publisher and Subscriber
 ![cargo run on subscriber](image2.png)
