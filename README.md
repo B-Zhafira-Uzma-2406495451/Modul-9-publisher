@@ -23,6 +23,14 @@ langsung mengambil dan menampilkan isi pesan tersebut di konsol.
 
 ![cargo run on publisher](image3.png)
 Foto di atas menunjukkan terminal publisher setelah menjalankan perintah cargo run. Saat dijalankan, program publisher
-secara otomatis membuat dan mengirimkan 5 buah event (UserCreatedEventMessage) ke message broker RabbitMQ.  Setiap pesan
-berisi data berupa user_id (1 sampai 5) dan user_name yang menyertakan identitas NPM. Publisher hanya bertugas
-mengirimkan data ke antrean (queue) tanpa perlu tahu kapan atau siapa yang akan memprosesnya.
+secara otomatis membuat dan mengirimkan 5 buah event UserCreatedEventMessage ke message broker RabbitMQ.  Setiap pesan
+berisi data berupa user_id dan user_name yang menyertakan identitas NPM. Publisher hanya bertugas mengirimkan data ke
+queue tanpa perlu tahu kapan atau siapa yang akan memprosesnya.
+
+![Monitoring Chart after Cargo Run](image4.png)
+Foto di atas menunjukkan kondisi message broker saat program sedang beroperasi secara aktif. Dari gambar tersebut, dapat
+terlihat ada grafik Message Rates yang mengonfirmasi bahwa pesan berhasil dikirim oleh publisher dan langsung diterima
+oleh subscriber. Ada juga grafik Queued Messages yang menunjukkan jumlah pesan yang sempat tertahan di dalam
+antrean sebelum diproses. Selain informasi tentang kedua messages tersebut, ada juga Global Counts yang menunjukkan
+Connections sebagai tanda adanya koneksi aktif ke broker dan Consumerssebagai tanda adanya satu subscriber yang siap dan
+sedang listening pesan dari antrean tertentu
