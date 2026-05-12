@@ -28,9 +28,10 @@ berisi data berupa user_id dan user_name yang menyertakan identitas NPM. Publish
 queue tanpa perlu tahu kapan atau siapa yang akan memprosesnya.
 
 ![Monitoring Chart after Cargo Run](image4.png)
-Foto di atas menunjukkan kondisi message broker saat program sedang beroperasi secara aktif. Dari gambar tersebut, dapat
-terlihat ada grafik Message Rates yang mengonfirmasi bahwa pesan berhasil dikirim oleh publisher dan langsung diterima
-oleh subscriber. Ada juga grafik Queued Messages yang menunjukkan jumlah pesan yang sempat tertahan di dalam
-antrean sebelum diproses. Selain informasi tentang kedua messages tersebut, ada juga Global Counts yang menunjukkan
-Connections sebagai tanda adanya koneksi aktif ke broker dan Consumerssebagai tanda adanya satu subscriber yang siap dan
-sedang listening pesan dari antrean tertentu
+Foto di atas tentang dashboard RabbitMQ Management menunjukkan adanya spikes yang signifikan pada grafik Message rates
+sesaat setelah program publisher dijalankan. Lonjakan pada garis kuning atau Publish merepresentasikan aktivitas
+pengiriman lima buah pesan secara sekaligus oleh program publisher ke arah message broker. Secara hampir bersamaan,
+muncul lonjakan pada garis ungu atau Deliver yang menandakan bahwa broker telah berhasil meneruskan pesan-pesan tersebut
+kepada subscriber yang sedang aktif menunggu di sisi lain. Fenomena ini secara visual membuktikan bahwa sistem 
+event-driven bekerja secara real-time, di mana aktivitas pengiriman data dari satu layanan akan langsung tercatat dan
+diteruskan oleh broker kepada layanan yang mengonsumsinya.
