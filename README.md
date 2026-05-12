@@ -12,3 +12,16 @@ tertentu dan subscriber dapat mendengarkan serta memproses pesan dari antrean te
 
 ## Monitoring Chart
 ![Monitoring chart based on publisher](image1.png)
+
+## Running Cargo on Both Publisher and Subscriber
+![cargo run on subscriber](image2.png)
+Foto di atas menunjukkan terminal subscriber yang berhasil menangkap kelima pesan yang dikirim oleh publisher.
+Sesuai instruksi pada modul, teks pada output telah diubah menjadi "In Uzma's Computer [129500004y]" sebagai identitas
+pengenal. Setiap kali pesan sampai di antrean "user_created", subscriber yang sedang dalam kondisi listening akan
+langsung mengambil dan menampilkan isi pesan tersebut di konsol.
+
+![cargo run on publisher](image3.png)
+Foto di atas menunjukkan terminal publisher setelah menjalankan perintah cargo run. Saat dijalankan, program publisher
+secara otomatis membuat dan mengirimkan 5 buah event (UserCreatedEventMessage) ke message broker RabbitMQ.  Setiap pesan
+berisi data berupa user_id (1 sampai 5) dan user_name yang menyertakan identitas NPM. Publisher hanya bertugas
+mengirimkan data ke antrean (queue) tanpa perlu tahu kapan atau siapa yang akan memprosesnya.
